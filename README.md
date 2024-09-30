@@ -34,4 +34,4 @@ Ce projet a été développé pour permettre à un client de gérer les informat
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/nom-du-repo.git
+   git clone https://github.com/rabiilfarakh/Gestionnaire-Employ-s-.git
