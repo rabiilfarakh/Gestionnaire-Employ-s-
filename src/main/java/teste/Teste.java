@@ -1,31 +1,32 @@
-package teste;
+package test;
 
-import dao.Services;
+import dao.EmployeeDAO;
+import dao.EmployeeDAOImpl;
 import model.Employee;
 
 import java.util.List;
 
 public class Teste {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        // load services
-        Services services = new Services();
+        // Instancier l'implémentation via l'interface
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
 
-        //Add Employee
-        //Employee employee1 = new Employee("Employee_1","employee_1@gmail.com","0611122233","Maths","Professeur");
-        //services.addEmployee(employee1);
+        // Ajouter un employé (
+        // Employee employee1 = new Employee("Employee_11", "employee_11@gmail.com", "0611122233", "Maths", "Professeur");
+        // employeeDAO.addEmployee(employee1);
 
-        // get Employee
-        //Employee employee = services.getEmployee(1);
-        //System.out.println(employee.toString());
+        // Obtenir un employé par son ID
+        // Employee employee = employeeDAO.getEmployee(52);
+        // System.out.println(employee.toString());
 
-        //delete Employee
-        //services.deleteEmployee(1);
+        // Supprimer un employé par son ID
+        // employeeDAO.deleteEmployee(1);
 
-        //getAll Employee
-        List<Employee> listEmployes = services.getAllEmployes();
-        displayEmployeeTable(listEmployes);
+        // Obtenir la liste de tous les employés
+        List<Employee> listEmployees = employeeDAO.getAllEmployes();
+        displayEmployeeTable(listEmployees);
     }
 
     public static void displayEmployeeTable(List<Employee> employees) {
