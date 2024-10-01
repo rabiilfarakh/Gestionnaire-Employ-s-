@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Employee" table="EMPLOYES">
+        <id name="idEmployee" column="ID_EMPLOYEE">
+            <generator class="native"></generator>
+        </id>
+        <property name="name" column="NAME"></property>
+        <property name="email" column="EMAIL"></property>
+        <property name="phone" column="PHONE"></property>
+        <property name="departement" column="DEPARTEMENT"></property>
+        <property name="poste" column="POSTE"></property>
+    </class>
+</hibernate-mapping>
+

@@ -1,11 +1,22 @@
 package model;
 
 public class Employee {
+
+    private Integer idEmployee;
     private String name;
     private String email;
     private String phone;
     private String departement;
     private String poste;
+
+    public Employee(Integer idEmployee, String name, String email, String phone, String departement, String poste) {
+        this.idEmployee = idEmployee;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.departement = departement;
+        this.poste = poste;
+    }
 
     public Employee(String name, String email, String phone, String departement, String poste) {
         this.name = name;
@@ -13,6 +24,14 @@ public class Employee {
         this.phone = phone;
         this.departement = departement;
         this.poste = poste;
+    }
+
+    public Integer getIdEmployee() {
+        return idEmployee;
+    }
+
+    public void setIdEmployee(Integer idEmployee) {
+        this.idEmployee = idEmployee;
     }
 
     public String getName() {

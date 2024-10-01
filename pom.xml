@@ -26,7 +26,7 @@
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
-      <version>42.5.4</version>
+      <version>42.6.0</version>
     </dependency>
     <!-- JUnit for testing -->
     <dependency>
@@ -40,7 +40,7 @@
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version> <!-- Version compatible avec Tomcat 9 -->
+      <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
 
