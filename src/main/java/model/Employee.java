@@ -18,6 +18,9 @@ public class Employee {
         this.poste = poste;
     }
 
+    public Employee() {
+    }
+
     public Employee(String name, String email, String phone, String departement, String poste) {
         this.name = name;
         this.email = email;
@@ -73,4 +76,11 @@ public class Employee {
     public void setPoste(String poste) {
         this.poste = poste;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Employee{idEmployee=%d, name='%s', email='%s', phone='%s', department='%s', position='%s'}",
+                idEmployee, name, email, phone, departement, poste);
+    }
+
 }
