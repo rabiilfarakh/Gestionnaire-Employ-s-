@@ -25,4 +25,18 @@ public class EmployeeServlet extends HttpServlet {
         request.setAttribute("employees", employees);
         request.getRequestDispatcher("/view/index.jsp").forward(request, response);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        String email = req.getParameter("email");
+        String poste = req.getParameter("poste");
+        String phone = req.getParameter("phone");
+        String departement = req.getParameter("departement");
+
+        Employee employee = new Employee(name,email,poste,phone,departement);
+        employeeDAO.addEmployee(employee);
+
+        resp.sendRedirect("index.jsp");
+    }
 }

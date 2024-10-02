@@ -25,7 +25,7 @@
         function confirmDelete(id) {
             if (confirm("Êtes-vous sûr de vouloir supprimer cet employé ?")) {
                 // Logique de suppression à ajouter ici
-                window.location.href = 'deleteEmployee.jsp?id=' + id; // Redirige vers la page de suppression
+                window.location.href = 'deleteEmployee.jsp?id=' + id;
             }
         }
     </script>
@@ -51,7 +51,7 @@
             <th>Téléphone</th>
             <th>Département</th>
             <th>Poste</th>
-            <th>Actions</th> <!-- Nouvelle colonne pour les actions -->
+            <th>Actions</th>
         </tr>
         <%
             for (Employee employee : employees) {
