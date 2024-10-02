@@ -15,7 +15,7 @@ public interface EmployeeService {
 
     void deleteEmployee(Integer idEmployee);
 
-    void updateEmployee(Employee employee);
+    void updateEmployee(Integer idEmployee, Employee employee);
 
     List<Employee> searchEmployees(String value);
 

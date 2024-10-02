@@ -67,17 +67,35 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public void updateEmployee(Employee employee) {
+    public void updateEmployee(Integer idEmployee, Employee newEmployee) {
+        if (newEmployee == null) {
+            throw new IllegalArgumentException("New Employee cannot be null");
+        }
+
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
             session.beginTransaction();
-            session.update(employee);
+
+            Employee existingEmployee = session.get(Employee.class, idEmployee);
+            if (existingEmployee != null) {
+                existingEmployee.setName(newEmployee.getName());
+                existingEmployee.setEmail(newEmployee.getEmail());
+                existingEmployee.setPhone(newEmployee.getPhone());
+                existingEmployee.setDepartement(newEmployee.getDepartement());
+                existingEmployee.setPoste(newEmployee.getPoste());
+
+                session.update(existingEmployee);
+            } else {
+                throw new IllegalArgumentException("Employee with ID " + idEmployee + " does not exist");
+            }
+
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
             throw e;
         }
     }
+
 
     @Override
     public List<Employee> searchEmployees(String value) {

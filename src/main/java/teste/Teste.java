@@ -19,6 +19,10 @@ public class Teste {
         // Employee employee2 = new Employee("Jane Smith", "jane.smith@gmail.com", "0611122234", "Informatique", "Ingenieur");
         // employeeDAO.addEmployee(employee2);
 
+        // update
+        Employee employee = new Employee("mohamed", "mohamed@gmail.com", "0611122233", "GEOLOGIE", "Enseinant");
+        employeeDAO.updateEmployee(52,employee);
+
         // Obtenir la liste de tous les employés
 //        List<Employee> listEmployees = employeeDAO.getAllEmployes();
 //        System.out.println("Tous les employés :");
@@ -30,9 +34,9 @@ public class Teste {
 //        displayEmployeeTable(searchedEmployees);
 
         //Test de la méthode filterEmployees (filtrer par département et poste)
-        System.out.println("\nFiltrer les employés par département");
-        List<Employee> filteredEmployees = employeeDAO.filterEmployees("Physique");
-        displayEmployeeTable(filteredEmployees);
+//        System.out.println("\nFiltrer les employés par département");
+//        List<Employee> filteredEmployees = employeeDAO.filterEmployees("Physique");
+//        displayEmployeeTable(filteredEmployees);
 
     }
 
