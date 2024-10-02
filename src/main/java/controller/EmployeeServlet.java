@@ -1,28 +1,28 @@
 package controller;
 
-import javax.servlet.RequestDispatcher;
+import dao.EmployeeDAO;
+import dao.EmployeeDAOImpl;
+import model.Employee;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Employee;
-
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
 public class EmployeeServlet extends HttpServlet {
+    private EmployeeDAO employeeDAO;
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Récupérer les données du formulaire
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String departement = request.getParameter("departement");
-        String poste = request.getParameter("post");
+    public void init() throws ServletException {
+        employeeDAO = new EmployeeDAOImpl();
+    }
 
-        PrintWriter pr = response.getWriter();
-        pr.println(name);
-        pr.println(email);
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Employee> employees = employeeDAO.getAllEmployes();
+        request.setAttribute("employees", employees);
+        request.getRequestDispatcher("/view/index.jsp").forward(request, response);
     }
 }

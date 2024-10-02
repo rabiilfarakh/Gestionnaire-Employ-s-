@@ -1,25 +1,46 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
 }
 
-h2 {
+h1 {
     color: #333;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.controls {
+    margin-bottom: 20px;
 }
 
-table, th, td {
-    border: 1px solid black;
+input[type="text"], select {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: auto;
+    max-width: 100%;
+    border-collapse: collapse;
 }
 
 th, td {
     padding: 10px;
     text-align: left;
+    white-space: nowrap;
 }
 
-input[type="submit"], a {
-    margin-top: 10px;
+th {
+    background-color: #f2f2f2;
 }

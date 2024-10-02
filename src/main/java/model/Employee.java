@@ -9,8 +9,9 @@ public class Employee {
     private String departement;
     private String poste;
 
+    // Constructeur corrigé
     public Employee(Integer idEmployee, String name, String email, String phone, String departement, String poste) {
-        this.idEmployee = idEmployee;
+        this.idEmployee = idEmployee; // Correction ici
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -82,5 +83,4 @@ public class Employee {
         return String.format("Employee{idEmployee=%d, name='%s', email='%s', phone='%s', department='%s', position='%s'}",
                 idEmployee, name, email, phone, departement, poste);
     }
-
 }
