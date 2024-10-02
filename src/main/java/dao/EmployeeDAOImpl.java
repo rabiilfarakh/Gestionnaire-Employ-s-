@@ -66,4 +66,59 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
     }
 
+    @Override
+    public void updateEmployee(Employee employee) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.update(employee);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            throw e;
+        }
+    }
+
+    @Override
+    public List<Employee> searchEmployees(String value) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+
+            // Requête HQL pour rechercher dans plusieurs champs (nom, email, département, poste)
+            String hql = "FROM Employee WHERE name LIKE :value OR email LIKE :value OR phone LIKE :value OR departement LIKE :value OR poste LIKE :value";
+            var query = session.createQuery(hql, Employee.class);
+            query.setParameter("value", "%" + value + "%");
+
+            List<Employee> employees = query.list();
+            session.getTransaction().commit();
+
+            return employees;
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            throw e;
+        }
+    }
+
+    @Override
+    public List<Employee> filterEmployees(String department) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+
+            String hql = "FROM Employee WHERE departement LIKE :value";
+            var query = session.createQuery(hql,Employee.class);
+            query.setParameter("value", "%" + department + "%");
+
+            List<Employee> employees = query.list();
+            session.getTransaction().commit();
+
+                return employees;
+            } catch (Exception e) {
+                session.getTransaction().rollback();
+                throw e;
+            }
+    }
+
+
 }

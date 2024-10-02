@@ -1,4 +1,4 @@
-package test;
+package teste;
 
 import dao.EmployeeDAO;
 import dao.EmployeeDAOImpl;
@@ -13,20 +13,27 @@ public class Teste {
         // Instancier l'implémentation via l'interface
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
 
-        // Ajouter un employé (
-        // Employee employee1 = new Employee("Employee_11", "employee_11@gmail.com", "0611122233", "Maths", "Professeur");
+        // Ajouter des employés pour tester (vous pouvez commenter cela si les employés existent déjà)
+        // Employee employee1 = new Employee("John Doe", "john.doe@gmail.com", "0611122233", "Maths", "Professeur");
         // employeeDAO.addEmployee(employee1);
-
-        // Obtenir un employé par son ID
-        // Employee employee = employeeDAO.getEmployee(52);
-        // System.out.println(employee.toString());
-
-        // Supprimer un employé par son ID
-        // employeeDAO.deleteEmployee(1);
+        // Employee employee2 = new Employee("Jane Smith", "jane.smith@gmail.com", "0611122234", "Informatique", "Ingenieur");
+        // employeeDAO.addEmployee(employee2);
 
         // Obtenir la liste de tous les employés
-        List<Employee> listEmployees = employeeDAO.getAllEmployes();
-        displayEmployeeTable(listEmployees);
+//        List<Employee> listEmployees = employeeDAO.getAllEmployes();
+//        System.out.println("Tous les employés :");
+//        displayEmployeeTable(listEmployees);
+
+        // Test de la méthode searchEmployees (recherche par nom, email, département, poste)
+//        System.out.println("\nRecherche d'employés");
+//        List<Employee> searchedEmployees = employeeDAO.searchEmployees("Employee_3");
+//        displayEmployeeTable(searchedEmployees);
+
+        //Test de la méthode filterEmployees (filtrer par département et poste)
+        System.out.println("\nFiltrer les employés par département");
+        List<Employee> filteredEmployees = employeeDAO.filterEmployees("Physique");
+        displayEmployeeTable(filteredEmployees);
+
     }
 
     public static void displayEmployeeTable(List<Employee> employees) {
