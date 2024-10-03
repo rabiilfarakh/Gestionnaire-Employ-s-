@@ -2,19 +2,22 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../css/addEmployee.css">
+    <script src="../js/validation.js"></script>
+
     <title>Ajouter un Employé</title>
+
 </head>
 <body>
     <h2>Ajouter un Employé</h2>
-    <form action="employees" method="post">
+    <form name="employeeForm" action="employees" method="post" onsubmit="return validateForm()">
         <input type="hidden" name="action" value="add">
-        Name: <input type="text" name="name"><br>
-        Email: <input type="text" name="email"><br>
-        Phone: <input type="text" name="phone"><br>
-        Department: <input type="text" name="departement"><br>
-        Post: <input type="text" name="post"><br>
+        Nom: <input type="text" id="name" name="name"><br>
+        E-mail: <input type="text" id="email" name="email"><br>
+        Téléphone: <input type="text" id="phone" name="phone"><br>
+        Département: <input type="text" id="departement" name="departement"><br>
+        Poste: <input type="text" id="poste" name="poste"><br>
         <input type="submit" value="Ajouter">
     </form>
-    <a href="index.jsp">Retour à la liste</a>
+    <a href="employees">Retour à la liste</a>
 </body>
 </html>
