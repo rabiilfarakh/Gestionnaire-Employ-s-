@@ -72,34 +72,6 @@ public class EmployeeServlet extends HttpServlet {
         String phone = req.getParameter("phone");
         String departement = req.getParameter("departement");
 
-        // Validation des champs
-        if (!Validation.isNameValid(name)) {
-            req.setAttribute("error", "Le nom est requis.");
-            req.getRequestDispatcher("view/editEmployee.jsp").forward(req, resp);
-            return;
-        }
-        if (!Validation.isEmailValid(email)) {
-            req.setAttribute("error", "Email invalide.");
-            req.getRequestDispatcher("view/editEmployee.jsp").forward(req, resp);
-            return;
-        }
-        if (!Validation.isPhoneValid(phone)) {
-            req.setAttribute("error", "Numéro de téléphone invalide.");
-            req.getRequestDispatcher("view/editEmployee.jsp").forward(req, resp);
-            return;
-        }
-        if (!Validation.isDepartmentValid(departement)) {
-            req.setAttribute("error", "Le département est requis.");
-            req.getRequestDispatcher("view/editEmployee.jsp").forward(req, resp);
-            return;
-        }
-        if (!Validation.isPostValid(poste)) {
-            req.setAttribute("error", "Le poste est requis.");
-            req.getRequestDispatcher("view/editEmployee.jsp").forward(req, resp);
-            return;
-        }
-
-        // Mettre à jour l'employé
         Employee employee = new Employee(id, name, email, poste, phone, departement);
         employeeService.updateEmployee(id, employee);
 
