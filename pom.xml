@@ -58,14 +58,12 @@
       <version>1.2</version>
     </dependency>
 
-    <!-- Javax Persistence API (JPA) -->
     <dependency>
       <groupId>javax.persistence</groupId>
       <artifactId>javax.persistence-api</artifactId>
-      <version>2.2</version> <!-- Version compatible avec Hibernate -->
+      <version>2.2</version>
     </dependency>
 
-    <!-- Logging Dependency (optionnel, pour les logs Hibernate) -->
     <dependency>
       <groupId>org.jboss.logging</groupId>
       <artifactId>jboss-logging</artifactId>

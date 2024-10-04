@@ -26,16 +26,28 @@ public class EmployeeServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         if ("edit".equals(action)) {
+
             int id = Integer.parseInt(request.getParameter("id"));
             Employee employee = employeeService.getEmployee(id);
             request.setAttribute("employee", employee);
-            request.getRequestDispatcher("/view/editEmployee.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/editEmployee.jsp").forward(request, response);
+
+        } else if ("delete".equals(action)) {
+
+            int id = Integer.parseInt(request.getParameter("id"));
+            employeeService.deleteEmployee(id);
+            request.getSession().setAttribute("successMessage", "Employé supprimé avec succès.");
+            response.sendRedirect("employees");
+
         } else {
+
             List<Employee> employees = employeeService.getAllEmployes();
             request.setAttribute("employees", employees);
-            request.getRequestDispatcher("/view/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/index.jsp").forward(request, response);
+
         }
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -75,7 +87,7 @@ public class EmployeeServlet extends HttpServlet {
         Employee employee = new Employee(id, name, email, poste, phone, departement);
         employeeService.updateEmployee(id, employee);
 
-        resp.sendRedirect("index.jsp");
+        resp.sendRedirect("employees");
     }
 
     private void deleteEmployee(HttpServletRequest req, HttpServletResponse resp) throws IOException {
