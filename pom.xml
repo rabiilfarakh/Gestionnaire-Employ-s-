@@ -86,7 +86,6 @@
         </configuration>
       </plugin>
 
-      <!-- Plugin for WAR packaging -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
