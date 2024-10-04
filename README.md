@@ -1,4 +1,4 @@
-# Gestion des Employés - Application Web
+# Gestion des Employés - Application Web JEE
 
 ## Contexte du Projet
 
