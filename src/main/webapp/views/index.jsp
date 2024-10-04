@@ -20,7 +20,7 @@
         <input type="hidden" name="action" value="search">
         <input type="text" name="searchInput" placeholder="Rechercher un employé...">
 
-            <select id="departmentFilter" onchange="filterDepartment()">
+            <select id="departmentFilter" >
                 <option value="">Filtrer par Département</option>
                 <option value="HR">Ressources Humaines</option>
                 <option value="IT">Informatique</option>
