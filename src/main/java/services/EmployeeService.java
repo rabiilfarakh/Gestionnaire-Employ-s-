@@ -13,6 +13,8 @@ public interface EmployeeService {
 
     List<Employee> getAllEmployes();
 
+    List<String> getDistinctDepartments();
+
     void deleteEmployee(Integer idEmployee);
 
     void updateEmployee(Integer idEmployee, Employee employee);

@@ -1,47 +1,93 @@
+/* style.css */
+
+/* Style de base */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-}
-
-h1 {
+    background-color: #f4f4f4;
     color: #333;
+    margin: 0;
+    padding: 20px;
 }
 
+/* Titres */
+h1 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+/* Conteneurs */
 .controls {
-    margin-bottom: 20px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-input[type="text"], select {
+/* Formulaires */
+input[type="text"],
+select {
     padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
     margin-right: 10px;
 }
 
+input[type="text"]:focus,
+select:focus {
+    border-color: #4CAF50;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Lignes de table */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Boutons */
 button {
     padding: 10px 15px;
-    background-color: #007BFF;
-    color: white;
+    margin: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #4CAF50;
+    color: white;
 }
 
-table {
-    width: auto;
-    max-width: 100%;
-    border-collapse: collapse;
+/* Bouton pour ajouter un employé */
+button.add-employee {
+    background-color: #008CBA;
+    color: white;
 }
 
-th, td {
-    padding: 10px;
-    text-align: left;
-    white-space: nowrap;
+button.add-employee:hover {
+    background-color: #007B9E;
 }
-
-th {
-    background-color: #f2f2f2;
-}
-

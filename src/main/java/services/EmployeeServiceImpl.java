@@ -32,6 +32,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public List<String> getDistinctDepartments() {
+        return employeeDAO.getDistinctDepartments();
+    }
+
+    @Override
     public void deleteEmployee(Integer idEmployee) {
         employeeDAO.deleteEmployee(idEmployee);
     }

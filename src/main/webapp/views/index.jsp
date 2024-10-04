@@ -19,12 +19,15 @@
     <form action="employees" method="get">
         <input type="hidden" name="action" value="search">
         <input type="text" name="searchInput" placeholder="Rechercher un employé...">
+    </form>
 
-            <select id="departmentFilter" >
-                <option value="">Filtrer par Département</option>
-                <option value="HR">Ressources Humaines</option>
-                <option value="IT">Informatique</option>
-                <option value="Finance">Finance</option>
+    <form action="employees" method="get">
+        <input type="hidden" name="action" value="filter">
+            <select name="departmentFilter" id="departmentFilter" onchange="this.form.submit();">
+                <option value="">Sélectionner un département</option>
+                <c:forEach var="department" items="${distinctDepartments}">
+                    <option value="${department}">${department}</option>
+                </c:forEach>
             </select>
     </form>
 

@@ -42,17 +42,37 @@ public class EmployeeServlet extends HttpServlet {
         } else if ("search".equals(action)) {
 
             String searchInput = request.getParameter("searchInput");
+
             List<Employee> employees = employeeService.searchEmployees(searchInput);
+            List<String> distinctDepartments = employeeService.getDistinctDepartments();
+
             request.setAttribute("employees", employees);
+
+            request.setAttribute("distinctDepartments", distinctDepartments);
+            request.getRequestDispatcher("/views/index.jsp").forward(request, response);
+
+        } else if ("filter".equals(action)){
+
+            String filterInput = request.getParameter("departmentFilter");
+
+            List<Employee> employees = employeeService.filterEmployees(filterInput);
+            List<String> distinctDepartments = employeeService.getDistinctDepartments();
+
+            request.setAttribute("employees", employees);
+            request.setAttribute("distinctDepartments", distinctDepartments);
+
             request.getRequestDispatcher("/views/index.jsp").forward(request, response);
 
         } else {
-
             List<Employee> employees = employeeService.getAllEmployes();
-            request.setAttribute("employees", employees);
-            request.getRequestDispatcher("/views/index.jsp").forward(request, response);
+            List<String> distinctDepartments = employeeService.getDistinctDepartments();
 
+            request.setAttribute("employees", employees);
+            request.setAttribute("distinctDepartments", distinctDepartments);
+
+            request.getRequestDispatcher("/views/index.jsp").forward(request, response);
         }
+
     }
 
 
@@ -77,7 +97,7 @@ public class EmployeeServlet extends HttpServlet {
         String departement = req.getParameter("departement");
 
 
-        Employee employee = new Employee(name, email, poste, phone, departement);
+        Employee employee = new Employee(name, email, phone,departement,poste);
         employeeService.addEmployee(employee);
 
         resp.sendRedirect("employees");
@@ -102,6 +122,5 @@ public class EmployeeServlet extends HttpServlet {
         employeeService.deleteEmployee(id);
         resp.sendRedirect("employees");
     }
-
 
 }

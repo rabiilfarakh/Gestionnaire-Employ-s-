@@ -51,6 +51,20 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
+    public List<String> getDistinctDepartments() {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+            List<String> departments = session.createQuery("SELECT DISTINCT e.departement FROM Employee e", String.class).list();
+            session.getTransaction().commit();
+            return departments;
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            throw e;
+        }
+    }
+
+    @Override
     public void deleteEmployee(Integer idEmployee) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
