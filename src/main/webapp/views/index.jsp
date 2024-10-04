@@ -68,11 +68,6 @@
 <button onclick="window.location.href='addEmployee.jsp'">Ajouter un Employé</button>
 
 <script>
-    function filterDepartment() {
-        const filterValue = document.getElementById("departmentFilter").value;
-        // Logique de filtrage à ajouter ici
-    }
-
     function confirmDelete(id) {
         if (confirm("Êtes-vous sûr de vouloir supprimer cet employé ?")) {
             window.location.href = 'employees?action=delete&id=' + id;
