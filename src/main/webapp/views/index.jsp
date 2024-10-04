@@ -14,16 +14,20 @@
 
 <h1>Liste des Employés</h1>
 
-
-
 <div class="controls">
-    <input type="text" id="searchInput" placeholder="Rechercher un employé..." onkeyup="searchEmployees()">
-    <select id="departmentFilter" onchange="filterDepartment()">
-        <option value="">Filtrer par Département</option>
-        <option value="HR">Ressources Humaines</option>
-        <option value="IT">Informatique</option>
-        <option value="Finance">Finance</option>
-    </select>
+
+    <form action="employees" method="get">
+        <input type="hidden" name="action" value="search">
+        <input type="text" name="searchInput" placeholder="Rechercher un employé...">
+
+            <select id="departmentFilter" onchange="filterDepartment()">
+                <option value="">Filtrer par Département</option>
+                <option value="HR">Ressources Humaines</option>
+                <option value="IT">Informatique</option>
+                <option value="Finance">Finance</option>
+            </select>
+    </form>
+
 </div>
 
 <table border="1">
@@ -64,11 +68,6 @@
     function filterDepartment() {
         const filterValue = document.getElementById("departmentFilter").value;
         // Logique de filtrage à ajouter ici
-    }
-
-    function searchEmployees() {
-        const searchValue = document.getElementById("searchInput").value;
-        // Logique de recherche à ajouter ici
     }
 
     function confirmDelete(id) {

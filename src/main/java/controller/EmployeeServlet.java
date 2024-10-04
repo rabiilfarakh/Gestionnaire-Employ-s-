@@ -39,6 +39,13 @@ public class EmployeeServlet extends HttpServlet {
             request.getSession().setAttribute("successMessage", "Employé supprimé avec succès.");
             response.sendRedirect("employees");
 
+        } else if ("search".equals(action)) {
+
+            String searchInput = request.getParameter("searchInput");
+            List<Employee> employees = employeeService.searchEmployees(searchInput);
+            request.setAttribute("employees", employees);
+            request.getRequestDispatcher("/views/index.jsp").forward(request, response);
+
         } else {
 
             List<Employee> employees = employeeService.getAllEmployes();
@@ -95,4 +102,6 @@ public class EmployeeServlet extends HttpServlet {
         employeeService.deleteEmployee(id);
         resp.sendRedirect("employees");
     }
+
+
 }
